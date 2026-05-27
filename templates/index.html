@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sales Prediction System</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://cdn.plot.ly/plotly-2.29.1.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand">Sales Prediction System</div>
+      <div class="nav-right">Business Analytics Dashboard</div>
+    </nav>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-left glass">
+          <h1>Forecast Sales from Advertising Spend</h1>
+          <p>Interactive, real-time predictions with a premium dashboard UI.</p>
+
+          <div class="input-group">
+            <label>TV Budget ($)</label>
+            <input id="tv" type="range" min="0" max="300" value="150" />
+            <input id="tv_num" type="number" min="0" max="1000" value="150" />
+          </div>
+
+          <div class="input-group">
+            <label>Radio Budget ($)</label>
+            <input id="radio" type="range" min="0" max="50" value="25" />
+            <input id="radio_num" type="number" min="0" max="1000" value="25" />
+          </div>
+
+          <div class="input-group">
+            <label>Newspaper Budget ($)</label>
+            <input id="newspaper" type="range" min="0" max="100" value="20" />
+            <input id="newspaper_num" type="number" min="0" max="1000" value="20" />
+          </div>
+
+          <div class="actions">
+            <button id="predictBtn" class="btn">Predict</button>
+            <div id="loader" class="loader hidden"></div>
+          </div>
+
+          <div id="resultCards" class="results">
+            <div class="card">
+              <h3>Predicted Sales</h3>
+              <p id="prediction">—</p>
+            </div>
+            <div class="card">
+              <h3>Budget Total</h3>
+              <p id="totalBudget">—</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div id="budgetChart" class="card chart"></div>
+          <div id="scatterChart" class="card chart"></div>
+        </div>
+      </section>
+
+      <section class="info glass">
+        <h2>Model Insights</h2>
+        <p>Linear Regression trained on Advertising dataset. Use sliders to explore how media budgets influence sales in real time.</p>
+        <div class="metrics" id="metrics"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© Sales Prediction System</div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+  </body>
+  </html>
